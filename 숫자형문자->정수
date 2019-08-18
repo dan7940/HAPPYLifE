@@ -7,3 +7,4 @@ int ArrayToInteger(char string[])
 	}
 	return num;
 }
+/*stdlib.h 의 atoi함수와 동일*/
