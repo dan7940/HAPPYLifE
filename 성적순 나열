@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+void main()
+{
+	int lang[3], math[3], eng[3], i, loop, temp;
+	int total[3], rank[3];
+	char name[3][32];
+    for(i=0;i<3;i++){
+	printf("%d번째 학생 이름: ", i+1);
+	scanf("%s", name[i]);
+	printf("국어 점수: ");
+	scanf("%d", &lang[i]);
+	printf("수학 점수: ");
+	scanf("%d", &math[i]);
+	printf("영어 점수: ");
+	scanf("%d", &eng[i]);
+	printf("\n");
+	total[i]=eng[i]+math[i]+lang[i];
+	rank[i]=i;
+	}
+	
+	for(i=0;i<2;i++){
+		for(loop=0;loop<2-i;loop++){
+			if(total[loop]<total[loop+1]){
+				temp=total[loop];
+				total[loop]=total[loop+1];
+				total[loop+1]=temp;
+				
+				temp=rank[loop];
+				rank[loop]=rank[loop+1];
+				rank[loop+1]=temp;
+			}
+		}
+	}
+	
+	printf("-------------------------------\n");
+	printf("이름  국어 영어 수학 총점 평균 등수\n");
+	printf("-------------------------------\n");
+	
+	for(i=0;i<3;i++){
+		printf("%s %2d %2d %2d %3d %3d %d등\n", name[rank[i]],lang[rank[i]], eng[rank[i]], math[rank[i]],total[i], total[i]/3,i+1);
+	}
+	
+}
