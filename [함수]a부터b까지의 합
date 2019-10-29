@@ -1,0 +1,16 @@
+int sumof(int a, int b){
+	int i, min, max;
+	int sum;
+	if(a<b){
+		min=a;
+		max=b;
+	}
+	else{
+		min=b;
+		max=a;
+	}
+	for(i=min;i<=max;i++){
+		sum+=i;
+	}
+	return sum;
+}
